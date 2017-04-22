@@ -1,0 +1,4 @@
+enable_defaults! { ENV['RACK_ENV'] != 'production' }
+
+variable :RACK_ENV,               :string,  default: 'development'
+variable :DEPLOYMENT_ENV,         :string,  default: 'development'
