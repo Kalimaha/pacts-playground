@@ -1,0 +1,54 @@
+{
+  "consumer": {
+    "name": "Library App"
+  },
+  "provider": {
+    "name": "Books Service"
+  },
+  "interactions": [
+    {
+      "description": "a request for a book",
+      "provider_state": "a book exists",
+      "request": {
+        "method": "get",
+        "path": "/books/1",
+        "query": ""
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "title": "A Fortune-Teller Told Me"
+        }
+      }
+    },
+    {
+      "description": "a request to create a new book",
+      "provider_state": "it is possible to create new books",
+      "request": {
+        "method": "post",
+        "path": "/books",
+        "body": "{\"title\":\"Alice's Adventures in Wonderland\"}"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "02e88370-25e5-4b71-a633-6aff702b6a86"
+          },
+          "title": "Alice's Adventures in Wonderland"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "1.0.0"
+  }
+}

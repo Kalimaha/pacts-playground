@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in RubyConsumer.gemspec
+gemspec
+
+gem 'pact'
+gem 'httparty'
+
+group :test do
+  gem 'rspec'
+  gem 'pact_broker-client'
+end
