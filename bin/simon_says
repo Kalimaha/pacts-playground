@@ -19,11 +19,26 @@ if ARGV.empty?
 else
   case ARGV[0]
   when 'setup'
-    exec("(cd ./RubyConsumer; bundle install; cd ../RubyProvider; bundle install;)")
+    setup = <<-SETUP
+      (
+        cd ./RubyConsumer;
+        bundle install;
+        cd ../RubyProvider;
+        bundle install;
+        cd ../PactBroker;
+        docker build -t pact-broker .;
+      )
+    SETUP
+
+    exec(setup)
   when 'verify_consumer'
     exec("(cd ./RubyConsumer; bundle exec rspec && bundle exec rake pact:publish)")
   when 'verify_provider'
     exec("(cd ./RubyProvider; bundle exec rake pact:verify)")
+  when 'start_broker'
+    exec("docker run -d --name pact-broker -p 8080:80 pact-broker")
+  when 'stop_broker'
+    exec("docker stop pact-broker; docker rm -f $(docker ps -aqf \"name=pact-broker\")")
   else
     print_help
   end
