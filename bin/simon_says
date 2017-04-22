@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+def print_help
+  puts <<-HELP
+┌-----------------------------------------------------------------------------┐
+| Available commands:                                                         |
+|                                                                             |
+| * setup...................Setup consumer and provider.                      |
+| * verify_consumer.........Run specs for the consumer and publish the pacts. |
+| * verify_provider.........Run the specs for the provider.                   |
+| * start_broker............Start Pact Broker server.                         |
+| * stop_broker.............Stop Pact Broker server.                          |
+└-----------------------------------------------------------------------------┘
+
+  HELP
+end
+
+if ARGV.empty?
+  print_help
+else
+  case ARGV[0]
+  when 'setup'
+    exec("(cd ./RubyConsumer; bundle install; cd ../RubyProvider; bundle install;)")
+  when 'verify_consumer'
+    exec("(cd ./RubyConsumer; bundle exec rspec && bundle exec rake pact:publish)")
+  when 'verify_provider'
+    exec("(cd ./RubyProvider; bundle exec rake pact:verify)")
+  else
+    print_help
+  end
+end

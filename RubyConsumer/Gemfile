@@ -8,4 +8,5 @@ gem 'httparty'
 
 group :test do
   gem 'rspec'
+  gem 'pact_broker-client'
 end

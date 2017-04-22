@@ -1,2 +1,9 @@
-require "bundler/gem_tasks"
-task :default => :spec
+require 'bundler/gem_tasks'
+require 'pact_broker/client/tasks'
+
+PactBroker::Client::PublicationTask.new do | task |
+  require 'RubyConsumer/version'
+
+  task.consumer_version = RubyConsumer::VERSION
+  task.pact_broker_base_url = "http://localhost:8080"
+end
