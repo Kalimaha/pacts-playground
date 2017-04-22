@@ -1,10 +1,10 @@
-This repository provides the basic infrastructure to practive with [Consumer Driven Contract testing](https://martinfowler.com/articles/consumerDrivenContracts.html), especially with the [realestate-com-au/pact](https://github.com/realestate-com-au/pact)'s ecosystem. There are three different components available in this repository:
+This repository provides the basic infrastructure to practice with [Consumer Driven Contract testing](https://martinfowler.com/articles/consumerDrivenContracts.html), especially with the [realestate-com-au/pact](https://github.com/realestate-com-au/pact)'s ecosystem. There are three different components available in this repository:
 
 * a simple Ruby consumer
 * a simple Ruby provider
 * a Dockerized version of the Pact Broker service (_[v. 1.16](https://github.com/bethesque/pact_broker/releases/tag/v1.16.0)_)
 
-Through these components it is possible to practive with Pact's concepts, starting with the examples described in the [realestate-com-au/pact](https://github.com/realestate-com-au/pact)'s repo.
+Through these components it is possible to practice with Pact's concepts, starting with the examples described in the [realestate-com-au/pact](https://github.com/realestate-com-au/pact)'s repo.
 
 # Setup
 To setup the components simply run:
