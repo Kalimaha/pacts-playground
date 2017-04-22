@@ -1,0 +1,31 @@
+{
+  "consumer": {
+    "name": "Library App"
+  },
+  "provider": {
+    "name": "Books Service"
+  },
+  "interactions": [
+    {
+      "description": "a request for a book",
+      "provider_state": "a book exists",
+      "request": {
+        "method": "get",
+        "path": "/books/1",
+        "query": ""
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "title": "A Fortune-Teller Told Me"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "1.0.0"
+  }
+}
